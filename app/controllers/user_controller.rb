@@ -274,7 +274,7 @@ class UserController < ApplicationController
           end
 
           if token.nil? or token.user != user
-            flash[:notice] = t('user.confirm.success')
+            flash[:notice] = t('user.confirm.success') + t('user.confirm.info')
             redirect_to :action => :login, :referer => referer
           else
             token.destroy
@@ -282,10 +282,10 @@ class UserController < ApplicationController
             session[:user] = user.id
 
             if referer.nil?
-              flash[:notice] = t('user.confirm.success') + "<br /><br />" + t('user.confirm.before you start')
+              flash[:notice] = t('user.confirm.success') + t('user.confirm.info') + "<br /><br />" + t('user.confirm.before you start')
               redirect_to :action => :account, :display_name => user.display_name
             else
-              flash[:notice] = t('user.confirm.success')
+              flash[:notice] = t('user.confirm.success') + t('user.confirm.info')
               redirect_to referer
             end
           end
