@@ -225,6 +225,7 @@ hr {
 
 #search_field input[type="submit"] {
   width: 26px;
+  padding-left: 3px;
 }
 
 .search_help {
