@@ -160,6 +160,11 @@ class UserController < ApplicationController
         flash.now[:error] = t 'user.lost_password.notice email cannot find'
       end
     end
+    if params[:layout] == 'slim'
+      render( :layout => 'slim' )
+    else
+      render
+    end
   end
 
   def reset_password
