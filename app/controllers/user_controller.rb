@@ -237,6 +237,7 @@ class UserController < ApplicationController
       flash.now[:notice] =  t 'user.login.notice'
     end
     if params[:layout] == 'slim'
+      @url_additional_params = {:layout => :slim}
       render( :layout => 'slim' )
     else
       render
